@@ -4,7 +4,10 @@
     "name": "build-cookbook",
     "path": ".delivery/build-cookbook"
   },
-  "skip_phases": [],
+  "skip_phases": [
+    "security",
+    "functional"
+   ],
   "build_nodes": {},
   "dependencies": []
 }
