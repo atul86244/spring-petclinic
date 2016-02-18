@@ -31,11 +31,18 @@ key = File.basename(file_name)
 
 log "Uploading artifact to S3"
 
-# To Do: Use data bags for AWS Creds
+with_server_config do
+  # Reading AWS creds from encrypted data bag
+  aws_creds = data_bag_item('aws_data', 'aws-creds', IO.read(Chef::Config[:encrypted_data_bag_secret]))
+end
+
 ruby_block 'upload war to S3' do
   block do
-    s3 = AWS::S3.new  # Setup .aws/config file on build nodes to read AWS creds.
-	s3.buckets[bucket_name].objects[key].write(:file => file_name)    
-  end
+    s3 = AWS::S3.new(
+	:access_key_id => aws_creds['aws_access_key_id'],
+	:secret_access_key => aws_creds['aws_secret_access_key']
+     )
+    s3.buckets[bucket_name].objects[key].write(:file => file_name)    
+   end
 end
 
