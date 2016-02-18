@@ -22,7 +22,7 @@ end
 
 # Upload Package to S3
 require 'rubygems'
-require 'aws-sdk'
+#require 'aws-sdk'
 require 'aws/s3'
 
 bucket_name = node['build-cookbook']['s3']['bucket_name']
