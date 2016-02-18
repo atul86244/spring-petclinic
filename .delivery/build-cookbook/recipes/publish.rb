@@ -34,10 +34,7 @@ log "Uploading artifact to S3"
 # To Do: Use data bags for AWS Creds
 ruby_block 'upload war to S3' do
   block do
-    s3 = AWS::S3.new(
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-     ) # Setup .aws/config file on build nodes to read AWS creds.
+    s3 = AWS::S3.new  # Setup .aws/config file on build nodes to read AWS creds.
 	s3.buckets[bucket_name].objects[key].write(:file => file_name)    
   end
 end
