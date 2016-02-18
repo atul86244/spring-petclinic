@@ -7,7 +7,7 @@
 log "Executing Publish Phase"
 
 # Remove existing war file, the mvn package command should recreate it
-file "#{node['build-cookbook']['pmd']['path']}/target/petclinic.war" do
+file "#{node['delivery']['workspace']['repo']}/target/petclinic.war" do
   action :delete
 end
 
@@ -26,7 +26,7 @@ require 'aws-sdk'
 require 'aws/s3'
 
 bucket_name = node['build-cookbook']['s3']['bucket_name']
-file_name = "#{node['build-cookbook']['pmd']['path']}/target/petclinic.war"
+file_name = "#{node['delivery']['workspace']['repo']}/target/petclinic.war"
 key = File.basename(file_name)
 
 log "Uploading artifact to S3"
