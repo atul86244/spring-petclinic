@@ -3,3 +3,12 @@
 # Recipe:: syntax
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
+
+
+log "Running Syntax Tests"
+
+execute 'mvn compile' do
+  command 'mvn compile'
+  cwd node['delivery']['workspace']['repo']
+  action :run
+end
