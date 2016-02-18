@@ -8,6 +8,8 @@
 
 include_recipe 'delivery-truck::default'
 
+node.default['java']['jdk_version'] = "7"
+
 # Install java
 include_recipe 'java'
 
