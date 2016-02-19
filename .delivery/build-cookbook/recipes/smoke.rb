@@ -16,7 +16,7 @@ cookbook_file '/tmp/smoke_test.rb' do
 end
 
 # Chef_Delivery::ClientHelper.enter_client_mode_as_delivery
-DeliverySugar::ChefServer.with_server_config do
+with_server_config do
 
 	# Run a search to get nodes
 	search_query = node['delivery']['config']['delivery-truck']['deploy']['search']
