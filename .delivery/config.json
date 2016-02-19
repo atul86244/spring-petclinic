@@ -8,11 +8,6 @@
     "security",
     "functional"
    ],
-  "delivery-truck": {
-    "deploy": {
-      "search": "recipe:java_app_deploy*"
-    }
-  },
   "build_nodes": {},
   "dependencies": []
 }
