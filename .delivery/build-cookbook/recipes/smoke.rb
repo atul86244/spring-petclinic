@@ -6,21 +6,17 @@
 
 log "Running Smoke Tests"
 
-# Install inspec
-# chef_gem 'inspec'
-
 # Copy inspec test script to build node
 cookbook_file '/tmp/smoke_test.rb' do
   source 'smoke_test.rb'
   mode '0775'
 end
 
-# Chef_Delivery::ClientHelper.enter_client_mode_as_delivery
 with_server_config do
 
 	# Run a search to get nodes
-	search_query = node['delivery']['config']['delivery-truck']['deploy']['search']
-	nodes = search("node", "chef_environment:#{delivery_environment} AND #{search_query}")
+	search_query = "recipes:#{node['delivery']['change']['project']}* AND chef_environment:#{delivery_environment}"
+	nodes = search("node", "#{search_query}")
 	ssh_user = node['build-cookbook']['ssh_user']
 	ssh_key = node['build-cookbook']['ssh_key_path']
 
