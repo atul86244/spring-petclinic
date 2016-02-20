@@ -24,7 +24,7 @@ with_server_config do
 		ip = infra_node['cloud']['public_ipv4']
 		# Execute inspec 
 		execute 'execute_inspec' do
-		   command "/opt/chefdk/embedded/bin/inspec exec /tmp/smoke_test.rb -t ssh://#{ssh_user}@#{ip} -i #{ssh_key}"
+		   command "inspec exec /tmp/smoke_test.rb -t ssh://#{ssh_user}@#{ip} -i #{ssh_key}"
 		   action :run
 		end
 	end
