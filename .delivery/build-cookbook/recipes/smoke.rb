@@ -7,7 +7,7 @@
 log "Running Smoke Tests"
 
 # Install inspec
-chef_gem 'inspec'
+# chef_gem 'inspec'
 
 # Copy inspec test script to build node
 cookbook_file '/tmp/smoke_test.rb' do
