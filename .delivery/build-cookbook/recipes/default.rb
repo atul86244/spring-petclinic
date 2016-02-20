@@ -13,6 +13,9 @@ node.default['java']['jdk_version'] = "7"
 # Install java
 include_recipe 'java'
 
+# Install Inspec
+chef_gem 'inspec'
+
 # Install unzip
 package 'unzip' do
   action :install
