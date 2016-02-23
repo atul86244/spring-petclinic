@@ -34,7 +34,7 @@ log "Uploading artifact to S3"
 with_server_config do
   # Reading AWS creds from encrypted data bag
   aws_creds = data_bag_item('aws_data', 'aws-creds', IO.read(Chef::Config[:encrypted_data_bag_secret]))
-
+ 
  ruby_block 'upload war to S3' do
   block do
     s3 = AWS::S3.new(
