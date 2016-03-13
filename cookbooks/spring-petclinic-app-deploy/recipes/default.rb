@@ -21,6 +21,14 @@ include_recipe 'java'
 # Install Tomcat
 include_recipe 'tomcat'
 
+tomcat_webapps_dir = node['tomcat']['webapp_dir']
+tomcat_service_name = node['tomcat']['base_instance']
+
+service 'tomcat' do
+  action :nothing
+  service_name tomcat_service_name
+end
+
 # Deploy app
 application 'petclinic' do
   path '/var/www/petclinic'
@@ -30,14 +38,6 @@ application 'petclinic' do
 
   java_webapp
   #tomcat
-end
-
-tomcat_webapps_dir = node['tomcat']['webapp_dir']
-tomcat_service_name = node['tomcat']['base_instance']
-
-service 'tomcat' do
-  action :nothing
-  service_name tomcat_service_name
 end
 
 # # Stop Tomcat
