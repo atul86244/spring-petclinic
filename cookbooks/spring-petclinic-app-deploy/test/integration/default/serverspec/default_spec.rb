@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'java_app_deploy::default' do
+describe 'spring-petclinic-app-deploy::default' do
   # Serverspec examples can be found at
   # http://serverspec.org/resource_types.html
   it 'does something' do
