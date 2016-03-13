@@ -8,6 +8,11 @@ app_data = data_bag_item("spring_petclinic_new","app_details")
 
 node.default['java']['jdk_version'] = "7"
 
+# Install curl - required by kitchen for testing
+package 'curl' do
+  action :install
+end
+
 # Install Java
 include_recipe 'java'
 
