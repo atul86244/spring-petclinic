@@ -4,6 +4,8 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
+include_recipe 'delivery-truck::lint'
+
 log "Executing Lint Tests"
 
 execute 'execute lint test' do
