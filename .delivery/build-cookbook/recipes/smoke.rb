@@ -14,7 +14,7 @@ end
 
 with_server_config do
 
-	# Run a search to get nodes
+	# Search to get nodes
 	search_query = "recipes:#{node['delivery']['change']['project']}* AND chef_environment:#{delivery_environment}"
 	nodes = search("node", "#{search_query}")
 	ssh_user = node['build-cookbook']['ssh_user']

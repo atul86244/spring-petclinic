@@ -4,8 +4,11 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-#node.default['delivery']['config']['delivery-truck']['deploy']['search'] = "expanded_run_list:java_app_deploy*"
-#include_recipe 'delivery-truck::deploy'
+# This search assumes that your deploy cookbook's name matches with the name of your app.
+# e.g. spring-petclinic-app-deploy::default where spring-petclinic is the app name. 
+# The deploy cookbook should be added to the run_list of the infra nodes in each chef environment
+# and the infra nodes should be searchable using the search filter "recipes:<deploy_cookbookname>*"
+# You can modify this search if required.
 
 search_query = "recipes:#{node['delivery']['change']['project']}* AND chef_environment:#{delivery_environment} " 
 

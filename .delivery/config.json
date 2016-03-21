@@ -8,6 +8,11 @@
     "security",
     "functional"
    ],
+  "delivery-truck": {
+     "publish": {
+       "chef_server" : true
+     }
+   },
   "build_nodes": {},
   "dependencies": []
 }
