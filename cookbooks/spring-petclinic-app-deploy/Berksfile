@@ -1,5 +1,3 @@
 source 'https://supermarket.chef.io'
 
-cookbook 'application_java', git: 'https://github.com/jamiely/application_java'
-
 metadata
