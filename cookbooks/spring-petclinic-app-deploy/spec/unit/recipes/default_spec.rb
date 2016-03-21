@@ -1,12 +1,12 @@
 #
-# Cookbook Name:: java_app_deploy
+# Cookbook Name:: spring-petclinic-app-deploy
 # Spec:: default
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
-describe 'java_app_deploy::default' do
+describe 'spring-petclinic-app-deploy::default' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new
