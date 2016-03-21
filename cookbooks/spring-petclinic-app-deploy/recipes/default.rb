@@ -4,9 +4,9 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-app_data = data_bag_item("spring_petclinic_new","app_details")
+app_data = data_bag_item('spring_petclinic_new', 'app_details')
 
-node.default['java']['jdk_version'] = "7"
+node.default['java']['jdk_version'] = '7'
 
 # Install Java
 include_recipe 'java'
@@ -53,4 +53,3 @@ execute 'rename_petclinic.war.zip' do
   action :nothing
   notifies :restart, "service[#{tomcat_service_name}]"
 end
-
