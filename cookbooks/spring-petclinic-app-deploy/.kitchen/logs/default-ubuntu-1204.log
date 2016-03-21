@@ -1,5 +1,0 @@
-I, [2016-03-18T14:15:45.266925 #13081]  INFO -- default-ubuntu-1204: -----> Verifying <default-ubuntu-1204>...
-I, [2016-03-18T14:15:45.267429 #13081]  INFO -- default-ubuntu-1204: Detected alternative framework tests for `inspec`
-I, [2016-03-18T14:15:45.267502 #13081]  INFO -- default-ubuntu-1204: Detected alternative framework tests for `serverspec`
-I, [2016-03-18T14:15:45.267696 #13081]  INFO -- default-ubuntu-1204: Search `/Users/atul/Documents/delivery_workspace/spring-petclinic-new/cookbooks/spring-petclinic-app-deploy/test/integration/default/inspec` for tests
-I, [2016-03-18T14:15:45.792629 #13081]  INFO -- default-ubuntu-1204: Finished verifying <default-ubuntu-1204> (0m0.52s).
