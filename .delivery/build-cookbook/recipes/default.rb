@@ -12,6 +12,9 @@ include_recipe 'delivery-truck::default'
 node.default['java']['jdk_version'] = "7"
 include_recipe 'java'
 
+# Install Rspec
+chef_gem 'rspec'
+
 # Install Inspec
 chef_gem 'inspec'
 
