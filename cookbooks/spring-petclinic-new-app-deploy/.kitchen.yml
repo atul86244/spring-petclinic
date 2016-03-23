@@ -18,5 +18,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[spring-petclinic-app-deploy::default]
+      - recipe[spring-petclinic-new-app-deploy::default]
     attributes:
