@@ -6,7 +6,8 @@
   },
   "skip_phases": [
     "security",
-    "functional"
+    "functional",
+    "smoke"
    ],
   "delivery-truck": {
      "publish": {
