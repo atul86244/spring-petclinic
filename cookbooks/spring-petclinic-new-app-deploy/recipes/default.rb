@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: spring-petclinic-app-deploy
+# Cookbook Name:: spring-petclinic-new-app-deploy
 # Recipe:: default
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.

@@ -63,7 +63,7 @@ end
 checksum = ''
 ruby_block 'get checksum' do
   block do
-    checksum = `shasum -a 256 #{file_name}.war`.split[0]
+    checksum = `shasum -a 256 #{file_name}`.split[0]
   end
 end
 
