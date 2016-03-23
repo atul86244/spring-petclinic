@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-app_data = data_bag_item('spring_petclinic_new', 'app_details')
+app_data = data_bag_item('spring-petclinic-new', 'app_details')
 
 node.default['java']['jdk_version'] = '7'
 
