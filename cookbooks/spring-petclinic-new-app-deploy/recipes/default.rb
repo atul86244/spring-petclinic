@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-app_data = data_bag_item('spring_petclinic_new', 'app_details')
+app_data = data_bag_item('spring-petclinic-new', 'app_details')
 
 node.default['java']['jdk_version'] = '7'
 
@@ -14,7 +14,7 @@ include_recipe 'java'
 # Install Tomcat
 include_recipe 'tomcat'
 
-# Install curl - Required by kitchen
+# Install curl - Required for testing using kitchen
 execute 'apt-get update' do
   command 'apt-get update'
   action :run
