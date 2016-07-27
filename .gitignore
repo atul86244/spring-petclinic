@@ -7,3 +7,4 @@ target/*
 /target
 /.kitchen
 .kitchen/*
+.kitchen.local.yml

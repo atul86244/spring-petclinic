@@ -14,11 +14,8 @@ include_recipe 'java'
 # Install Tomcat
 include_recipe 'tomcat'
 
-# Install curl - Required for testing using kitchen
-execute 'apt-get update' do
-  command 'apt-get update'
-  action :run
-end
+include_recipe 'apt'
+
 
 package 'curl' do
   action :install
