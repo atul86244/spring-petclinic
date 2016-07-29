@@ -21,7 +21,7 @@ package 'unzip' do
 end
 
 # Install maven
-package 'maven' do
+package 'apache-maven' do
   action :install
 end
 
