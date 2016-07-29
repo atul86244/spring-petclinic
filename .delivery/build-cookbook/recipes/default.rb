@@ -20,9 +20,15 @@ package 'unzip' do
   action :install
 end
 
+cookbook_file '/etc/yum.repos.d/epel-apache-maven.repo' do
+  source 'epel-apache-maven.repo'
+  mode '0755'
+end
+
 # Install maven
 package 'apache-maven' do
   action :install
+  flush_cache [ :before ]
 end
 
 # Install JUnit
