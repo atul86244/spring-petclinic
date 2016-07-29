@@ -1,0 +1,7 @@
+api_protocol = "https"
+enterprise = "Automate"
+git_port = "8989"
+organization = "automate-org"
+pipeline = "master"
+server = "aut-workflow-server"
+user = "delivery"
