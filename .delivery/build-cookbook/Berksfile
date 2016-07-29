@@ -1,0 +1,13 @@
+source 'https://supermarket.chef.io'
+
+metadata
+
+group :delivery do
+  cookbook 'delivery_build', git: 'https://github.com/chef-cookbooks/delivery_build'
+  cookbook 'delivery-base', git: 'https://github.com/chef-cookbooks/delivery-base'
+  cookbook 'test', path: './test/fixtures/cookbooks/test'
+end
+
+cookbook 'delivery-truck', github: 'chef-cookbooks/delivery-truck'
+cookbook 'delivery-sugar', github: 'chef-cookbooks/delivery-sugar'
+cookbook 'java', '~> 1.39.0'
