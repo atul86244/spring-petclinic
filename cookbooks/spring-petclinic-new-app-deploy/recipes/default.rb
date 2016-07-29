@@ -14,9 +14,6 @@ include_recipe 'java'
 # Install Tomcat
 include_recipe 'tomcat'
 
-include_recipe 'apt'
-
-
 package 'curl' do
   action :install
 end

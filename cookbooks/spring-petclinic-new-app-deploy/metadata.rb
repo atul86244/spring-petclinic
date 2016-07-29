@@ -8,4 +8,3 @@ version '0.1.3'
 
 depends 'tomcat', '= 1.0.1'
 depends 'java', '~> 1.39.0'
-depends 'apt'
