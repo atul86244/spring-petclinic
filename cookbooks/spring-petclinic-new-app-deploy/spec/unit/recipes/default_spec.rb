@@ -13,7 +13,7 @@ describe 'spring-petclinic-new-app-deploy::default' do
 		  server.create_data_bag('spring-petclinic', {
 		    'app_details' => {
 		       'version' => '1.0.0',
-               'artifact_location' => 'https://s3-us-west-2.amazonaws.com/atul-java-app/petclinic-1.0.0.war',
+               'artifact_location' => 'https://s3-us-west-2.amazonaws.com/emea-techcft/petclinic-1.0.0.war',
                'artifact_type' => 'http',
                'delivery_data' => ''
 		    }

@@ -32,6 +32,3 @@ suites:
     run_list:
       - recipe[spring-petclinic-new-app-deploy::default]
     attributes:
-      chef_client:
-        config:
-          log_level: ":debug"
