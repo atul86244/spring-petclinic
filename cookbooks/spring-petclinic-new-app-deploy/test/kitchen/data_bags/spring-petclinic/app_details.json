@@ -1,0 +1,8 @@
+{
+
+	"id" : "app_details",
+    "version" : "1.0",
+    "artifact_location" : "https://s3-eu-west-1.amazonaws.com/emea-techcft/petclinic-1.0.0.war",
+    "artifact_type" : "http",
+    "delivery_data" : ""
+}
