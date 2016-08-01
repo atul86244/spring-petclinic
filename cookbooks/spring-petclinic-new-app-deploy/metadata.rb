@@ -4,7 +4,7 @@ maintainer_email 'Atul.Srivastava@chef.io'
 license 'all_rights'
 description 'Deploys a java app'
 long_description 'A simple cookbook to deploy a java app'
-version '0.1.7'
+version '0.1.8'
 
 depends 'tomcat', '~> 2.3.1'
 depends 'java', '~> 1.39.0'
