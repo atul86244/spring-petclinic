@@ -1,23 +1,37 @@
 ---
-driver:
-  name: docker
-  use_sudo: false
-
 provisioner:
   name: chef_zero
-  require_chef_omnibus: 12.4.0
-  data_bags_path: "test/kitchen/data_bags"
+  data_bags_path: "test/kitchen/data_bags"    
+
+platforms:
+  - name: ec2-rhel-7.2
+    driver:
+      image_id: ami-8b8c57f8
+      name: ec2
+      aws_ssh_key_id: emea-sa-shared
+      region: eu-west-1
+      availability_zone: b
+      require_chef_omnibus: true
+      instance_type: t2.small
+      security_group_ids: ["sg-8436d7e3"]
+      tags: {
+        Name: "cad-kitchen",
+        created-by: "test-kitchen"
+      }
+    transport:
+      username: ec2-user
+      ssh_key: ~/.ssh/emea-sa-shared.pem
 
 # Uncomment the following verifier to leverage Inspec instead of Busser (the
 # default verifier)
 verifier:
   name: inspec
 
-platforms:
-  - name: centos-6.7
-
 suites:
   - name: default
     run_list:
       - recipe[spring-petclinic-new-app-deploy::default]
     attributes:
+      chef_client:
+        config:
+          log_level: ":debug"
