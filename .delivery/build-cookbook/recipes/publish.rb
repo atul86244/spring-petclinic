@@ -72,7 +72,7 @@ ruby_block 'upload data bag' do
       dbag_data = {
         'id' => "app_details",
         'version' => software_version,
-        'artifact_location' => "https://s3-us-west-2.amazonaws.com/atul-java-app/#{build_name}.war",
+        'artifact_location' => "https://s3-us-west-2.amazonaws.com/emea-techcft/#{build_name}.war",
         'artifact_checksum' => checksum,
         'artifact_type' => 'http',
         'delivery_data' => node['delivery']
