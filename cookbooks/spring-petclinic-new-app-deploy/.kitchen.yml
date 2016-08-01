@@ -15,7 +15,7 @@ platforms:
       instance_type: t2.small
       security_group_ids: ["sg-8436d7e3"]
       tags: {
-        Name: "cad-kitchen",
+        Name: "aut-kitchen",
         created-by: "test-kitchen"
       }
     transport:
