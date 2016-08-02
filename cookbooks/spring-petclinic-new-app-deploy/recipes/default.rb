@@ -24,7 +24,7 @@ tomcat_install tomcat_service_name do
 end
 
 tomcat_service tomcat_service_name do
-  action [:start, :enable]
+  action [:enable, :stop]
 end
 
 # Clean webapps folder
@@ -46,5 +46,5 @@ execute 'rename_petclinic.war.zip' do
   command 'mv -f petclinic.war.zip petclinic.war'
   cwd tomcat_webapps_dir
   action :nothing
-  notifies :restart, "tomcat_service[#{tomcat_service_name}]"
+  notifies :start, "tomcat_service[#{tomcat_service_name}]"
 end
