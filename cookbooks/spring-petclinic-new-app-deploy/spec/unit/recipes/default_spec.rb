@@ -9,7 +9,7 @@ require 'spec_helper'
 describe 'spring-petclinic-new-app-deploy::default' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new do |node, server|
+      runner = ChefSpec::ServerRunner.new(platform: 'redhat', version: '7.1') do |node, server|
 		  server.create_data_bag('spring-petclinic', {
 		    'app_details' => {
 		       'version' => '1.0.0',
