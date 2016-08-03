@@ -11,6 +11,6 @@ my_nodes = delivery_chef_server_search(:node, search_query)
 my_nodes.map!(&:name)
 
 delivery_push_job "deploy_#{node['delivery']['change']['project']}" do
-  command 'chef-client -r "role[audit_tomcat]"'
+  command 'tomcat-compliance-scan'
   nodes my_nodes
 end
