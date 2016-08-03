@@ -12,6 +12,6 @@ search_query = "(#{search_terms.join(' OR ')}) " \
   my_nodes.map!(&:name)
 
   delivery_push_job "deploy_#{node['delivery']['change']['project']}" do
-    command 'chef-client -r "recipe[audit::default]"'
+    command 'chef-client -r "role[audit_tomcat]"'
     nodes my_nodes
   end
