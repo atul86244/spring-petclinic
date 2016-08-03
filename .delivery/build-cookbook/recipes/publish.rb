@@ -26,7 +26,7 @@ execute 'mvn package' do
   action :run
 end
 
-# Rename war file 
+# Rename war file
 execute 'rename war' do
   action :run
   cwd "#{node['delivery']['workspace']['repo']}/target"
@@ -47,14 +47,10 @@ log "Uploading artifact to S3"
 
 with_server_config do
   # Reading AWS creds from encrypted data bag
-  aws_creds = data_bag_item('aws_data', 'aws-creds', IO.read(Chef::Config[:encrypted_data_bag_secret]))
- 
+
  ruby_block 'upload war to S3' do
   block do
-    s3 = AWS::S3.new(
-	:access_key_id => aws_creds['aws_access_key_id'],
-	:secret_access_key => aws_creds['aws_secret_access_key']
-     )
+    s3 = AWS::S3.new
     s3.buckets[bucket_name].objects[key].write(:file => file_name)
    end
  end
@@ -63,7 +59,7 @@ end
 checksum = ''
 ruby_block 'get checksum' do
   block do
-    checksum = `shasum -a 256 #{file_name}`.split[0]
+    checksum = `sha256sum #{file_name}`.split[0]
   end
 end
 
@@ -76,7 +72,7 @@ ruby_block 'upload data bag' do
       dbag_data = {
         'id' => "app_details",
         'version' => software_version,
-        'artifact_location' => "https://s3-us-west-2.amazonaws.com/atul-java-app/#{build_name}.war",
+        'artifact_location' => "https://s3-eu-west-1.amazonaws.com/emea-techcft/#{build_name}.war",
         'artifact_checksum' => checksum,
         'artifact_type' => 'http',
         'delivery_data' => node['delivery']
