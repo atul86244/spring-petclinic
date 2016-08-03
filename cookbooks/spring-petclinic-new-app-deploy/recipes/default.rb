@@ -48,3 +48,9 @@ execute 'rename_petclinic.war.zip' do
   action :nothing
   notifies :start, "tomcat_service[#{tomcat_service_name}]"
 end
+
+%w(bin conf logs temp).each do |dir_name|
+  directory "/opt/tomcat_#{tomcat_service_name}/#{dir_name}" do
+    mode 0750
+  end
+end
