@@ -15,8 +15,8 @@ package 'curl' do
   action :install
 end
 
-tomcat_webapps_dir = node['tomcat']['webapp_dir']
 tomcat_service_name = node['tomcat']['base_instance']
+tomcat_base_dir = "/opt/tomcat_#{tomcat_service_name}"
 
 # Install Tomcat
 tomcat_install tomcat_service_name do
@@ -27,14 +27,16 @@ tomcat_service tomcat_service_name do
   action [:enable, :stop]
 end
 
+include_recipe 'spring-petclinic-new-app-deploy::tomcat_hardening'
+
 # Clean webapps folder
-directory "#{tomcat_webapps_dir}/petclinic" do
+directory "#{tomcat_base_dir}/webapps/#{tomcat_service_name}" do
   action :delete
   recursive true
 end
 
 # Download war to tomcat webapps
-remote_file "#{tomcat_webapps_dir}/petclinic.war.zip" do
+remote_file "#{tomcat_base_dir}/webapps/petclinic.war.zip" do
   owner 'root'
   group 'root'
   mode '0775'
@@ -44,13 +46,7 @@ end
 
 execute 'rename_petclinic.war.zip' do
   command 'mv -f petclinic.war.zip petclinic.war'
-  cwd tomcat_webapps_dir
+  cwd "#{tomcat_base_dir}/webapps"
   action :nothing
   notifies :start, "tomcat_service[#{tomcat_service_name}]"
-end
-
-%w(bin conf logs temp).each do |dir_name|
-  directory "/opt/tomcat_#{tomcat_service_name}/#{dir_name}" do
-    mode 0750
-  end
 end
