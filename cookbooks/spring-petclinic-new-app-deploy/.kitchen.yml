@@ -26,12 +26,12 @@ platforms:
 # default verifier)
 verifier:
   name: inspec
-  sudo: false
   inspec_tests:
-        - compliance://automate-org/cis-apachetomcat-5.5-6.0-level1
+        - compliance://automate-org/cis-apachetomcat-8.0-level1
 
 suites:
   - name: default
     run_list:
       - recipe[spring-petclinic-new-app-deploy::default]
+      - recipe[spring-petclinic-new-app-deploy::enable_sudo_no_tty]
   
