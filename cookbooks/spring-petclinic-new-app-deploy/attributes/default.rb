@@ -1,0 +1,1 @@
+default['tomcat']['base_instance'] = "petclinic"
