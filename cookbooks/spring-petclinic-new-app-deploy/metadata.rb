@@ -7,4 +7,3 @@ long_description 'A simple cookbook to deploy a java app'
 version '0.1.25'
 
 depends 'tomcat', '~> 2.3.1'
-depends 'java', '~> 1.39.0'
