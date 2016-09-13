@@ -24,6 +24,6 @@ end
 execute 'rename_petclinic.war.zip' do
   command 'mv -f petclinic.war.zip petclinic.war'
   cwd "#{node['tomcat']['base_dir']}/webapps"
-  action :nothing
-  notifies :start, "tomcat_service[#{node['tomcat']['base_instance']}]"
+  action :run
+  notifies :start, "tomcat_service[#{node['tomcat']['base_instance']}]", :immediately
 end
