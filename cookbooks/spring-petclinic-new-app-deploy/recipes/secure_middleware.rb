@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: spring-petclinic-new-app-deploy
-# Recipe:: tomcat_hardening
+# Recipe:: secure_middleware
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
