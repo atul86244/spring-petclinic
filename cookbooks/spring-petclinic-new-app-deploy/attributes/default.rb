@@ -1,3 +1,4 @@
+default['tomcat']['version'] = "8.0.36"
 default['tomcat']['base_instance'] = "petclinic"
 default['tomcat']['base_dir'] = "/opt/tomcat_#{node['tomcat']['base_instance']}"
 
