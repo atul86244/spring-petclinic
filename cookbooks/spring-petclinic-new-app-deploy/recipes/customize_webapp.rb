@@ -4,6 +4,12 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
+ruby_block 'Wait for Tomcat Initialization' do
+  block do
+    true until ::File.exists?("#{node['tomcat']['base_dir']}/webapps/#{node['tomcat']['base_instance']}/WEB-INF")
+  end
+end
+
 template "#{node['tomcat']['base_dir']}/webapps/#{node['tomcat']['base_instance']}/resources/css/petclinic.css" do
   source 'petclinic.css.erb'
   owner 'tomcat_petclinic'
