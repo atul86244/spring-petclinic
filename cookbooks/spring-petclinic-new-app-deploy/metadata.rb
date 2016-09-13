@@ -4,7 +4,7 @@ maintainer_email 'emea-techcft+delivery@chef.io'
 license 'all_rights'
 description 'Deploys a java app'
 long_description 'A simple cookbook to deploy a java app'
-version '0.1.26'
+version '0.2.1'
 
 depends 'tomcat', '~> 2.3.1'
 depends 'java', '~> 1.39.0'
