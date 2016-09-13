@@ -5,10 +5,7 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 # Specific Application Configuration
-app_data = data_bag_item('spring-petclinic', 'app_details')
-node.default['java']['jdk_version'] = '7'
-tomcat_service_name = node['tomcat']['base_instance']
-tomcat_base_dir = "/opt/tomcat_#{tomcat_service_name}"
+
 
 # Install prerequisites
 include_recipe 'spring-petclinic-new-app-deploy::install_prereqs' 

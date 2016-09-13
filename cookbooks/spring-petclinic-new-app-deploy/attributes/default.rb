@@ -1,4 +1,5 @@
 default['tomcat']['base_instance'] = "petclinic"
+default['tomcat']['base_dir'] = "/opt/tomcat_#{node['tomcat']['base_instance']}"
 
 default['webapp']['background_color'] = "white"
 default['webapp']['headingtext_color'] = "red"

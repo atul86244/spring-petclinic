@@ -4,10 +4,10 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-tomcat_base_dir = "/opt/tomcat_#{node['tomcat']['base_instance']}"
+node['tomcat']['base_dir'] = "/opt/tomcat_#{node['tomcat']['base_instance']}"
 
 %w(bin conf logs temp).each do |dir_name|
-  directory "#{tomcat_base_dir}/#{dir_name}" do
+  directory "#{node['tomcat']['base_dir']}/#{dir_name}" do
     mode 0750
   end
 end
