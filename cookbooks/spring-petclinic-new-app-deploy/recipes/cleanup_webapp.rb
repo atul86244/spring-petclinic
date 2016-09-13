@@ -10,10 +10,10 @@ directory "#{node['tomcat']['base_dir']}/webapps/#{node['tomcat']['base_instance
   recursive true
 end
 
-file "#{node['tomcat']['base_dir']}/webapps//#{node['tomcat']['base_instance']}.war" do
+file "#{node['tomcat']['base_dir']}/webapps/#{node['tomcat']['base_instance']}.war" do
   action :delete
 end
 
-file "#{node['tomcat']['base_dir']}/webapps//#{node['tomcat']['base_instance']}.war.zip" do
+file "#{node['tomcat']['base_dir']}/webapps/#{node['tomcat']['base_instance']}.war.zip" do
   action :delete
 end
