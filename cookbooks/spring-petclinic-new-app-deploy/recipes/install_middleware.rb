@@ -6,7 +6,7 @@
 
 # Install Tomcat
 tomcat_install node['tomcat']['base_instance'] do
-  version "node['tomcat']['version']"
+  version "#{node['tomcat']['version']}"
 end
 
 tomcat_service node['tomcat']['base_instance'] do
