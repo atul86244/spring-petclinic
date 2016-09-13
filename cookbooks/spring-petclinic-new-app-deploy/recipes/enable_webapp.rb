@@ -17,13 +17,14 @@ remote_file "#{node['tomcat']['base_dir']}/webapps/petclinic.war.zip" do
   group 'root'
   mode '0775'
   source app_data['artifact_location']
-  notifies :run, 'execute[rename_petclinic.war.zip]'
+  notifies :run, 'execute[rename_petclinic.war.zip]', :immediately
 end
 
 # Move war file into place for Tomcat to read
 execute 'rename_petclinic.war.zip' do
   command 'mv -f petclinic.war.zip petclinic.war'
   cwd "#{node['tomcat']['base_dir']}/webapps"
-  action :run
+  action :nothing
+  only_if "test -f #{node['tomcat']['base_dir']}/webapps/petclinic.war.zip"
   notifies :start, "tomcat_service[#{node['tomcat']['base_instance']}]", :immediately
 end
