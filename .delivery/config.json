@@ -1,5 +1,8 @@
 {
   "version": "2",
+  "job_dispatch": {
+    "version": "v2"
+    },
   "build_cookbook": {
     "name": "build-cookbook",
     "path": ".delivery/build-cookbook"
